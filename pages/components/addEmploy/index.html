@@ -17,7 +17,7 @@
 <div class="bg">
 	<ul class="customer-list">
 		<li v-for="customer in customers" class="flex-box">
-			<i class="icon-icon31 {{customer.AStatus == 2 ?'cPrice':'sub'}}" @click="select(customer)"></i><span class="aside customer-content"><span>{{ customer.name }}</span><span>{{ customer.sex }}</span><span>{{ customer.age }}</span><span>{{ customer.idno | idformat }}</span></span>
+			<i class="icon-icon31 {{customer.AStatus == 2 ?'cPrice':'sub'}}" @click="select(customer)"></i><span class="aside customer-content"><span style="width:40%">{{ customer.name }}<i class="f12 sub">({{ customer.discount * 10}}折)</i></span><span style="width:20%">{{ customer.sex }}</span><span style="width:20%">{{ customer.age }}岁</span><span style="width:30%">{{ customer.idno | idformat }}</span></span><i class="icon-icon36 sub" style="margin-left: 5px;"></i>
 		</li>
 	</ul>
 </div>

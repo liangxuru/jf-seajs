@@ -14,7 +14,7 @@
 
 <addemploy></addemploy>
 
-<!-- <payment></payment> -->
+<payment v-bind:items="customer" v-bind:product="info"></payment>
 <!-- 课程时间选择 -->
 <template v-if="covershow">
 	<seloption v-bind:items="info.CCMList" v-bind:current="select"></seloption>

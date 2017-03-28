@@ -231,6 +231,7 @@ ul{
 	display: -webkit-box;
 	display: flex;
 	padding: 1.16rem;
+	align-items: center;
 }
 .flex-box .aside, .flex-box aside{
 	-webkit-box-flex: 1;

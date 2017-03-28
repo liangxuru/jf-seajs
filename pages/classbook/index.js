@@ -5,7 +5,7 @@ define(function (require,exports,module) {
         cssCompare = require("compire-css"),
         classService = require('../../service/class'),
         store = require('../../lib/store'),
-        pay = require("../components/pay/index"),
+        pay = require("../components/classpay/index"),
         selectOption = require('../components/selectOption/index'),
         addEmploy = require('../components/addemploy/index'),
         storeKeyEnum = require('../../lib/storeKeyEnum');
@@ -28,7 +28,8 @@ define(function (require,exports,module) {
                 coverEmployShow: false,
                 select: {},
                 info: {},
-                imgServer: __imgServer
+                imgServer: __imgServer,
+                customer: {}
 	        }
         },
         events: {
@@ -41,17 +42,11 @@ define(function (require,exports,module) {
             closeEmployCover: function(){
                 this.coverEmployShow = false;
             },
-            choose: function(item, direct){
-                // if(direct){
-                //     this.selectItems.push(item);
-                //     this.amount += item.APrice;
-                // }else{
-                //     this.selectItems = this.selectItems.filter(function (element) {
-                //         return !(element.AproductID == item.AproductID && element.AStartDate == item.AStartDate && element.AGroundFieldAId == item.AGroundFieldAId && element.AGround_Time_AId == item.AGround_Time_AId);
-                //     });
-                //     this.amount -= item.APrice;
-                // }
-                //store.set(storeKey, this.selectItems);
+            employInit: function(customer){
+                this.customer = customer;
+            },
+            choose: function(){
+                this.$broadcast("select");
             }
         },
         methods: {

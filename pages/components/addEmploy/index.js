@@ -21,6 +21,7 @@ define(function (require,exports,module) {
             },
             select: function(customer){
                 customer.AStatus = 3- customer.AStatus;
+                this.$dispatch("choose");
             }
         },
         ready: function(){
@@ -31,6 +32,7 @@ define(function (require,exports,module) {
                     item.AStatus = 2;
                 });
                 this.customers = data;
+                this.$dispatch("employInit", this.customers);
             }.bind(this));
         },
         filters: {
