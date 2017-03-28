@@ -1,0 +1,8 @@
+<!-- 课程列表 -->
+<search v-bind:query-text="search"></search>
+<div class="bgnoMargin" style="position: fixed;top: 6.7rem;left: 0;right: 0;z-index: 100;border-bottom: 1px solid #eee;">
+	<tablist></tablist>
+</div>
+<div class="bg" style="margin-top: 15.7rem;">
+	<list v-bind:items="classList" v-bind:page.sync="page" v-bind:has-more="hasMore"></calendar>
+</div>

@@ -1,0 +1,28 @@
+.tabs{
+	overflow: hidden;
+	background-color: #fff;
+	width: 100%;
+}
+.tabs .tab{
+	border-bottom: 2px solid #d8d8d8;
+	text-align: center;
+	position: relative;
+	-moz-transition: all 0.5s ease-in;
+    -webkit-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+    float: left;
+    box-sizing: border-box;
+}
+.tabs .tab.current{
+	border-bottom: 2px solid #00bcf8;
+}
+.tabs .tab:nth-child(2n)::before,.tabs .tab:nth-child(3n)::before{
+	content: " ";
+	display: inline-block;
+	height: 50%;
+	width: 1px;
+	position: absolute;
+	left: 0;
+	border-left: 1px solid #d8d8d8;
+}

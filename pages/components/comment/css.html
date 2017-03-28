@@ -1,0 +1,56 @@
+/*评论*/
+
+.comments .more{
+	text-align: center;
+	color: #888;
+	border-top: 1px solid #d8d8d8;
+	height: 3.5rem;
+	line-height: 3.5rem;
+}
+.comments .more::after{
+	content: "";
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	border-top: 1px solid;
+	border-left: 1px solid;
+	transform: rotate(225deg);
+	margin: 0 5px 2px 5px;
+}
+.comments>ul{
+	padding: 0 0.78rem;
+}
+.comments .comment{
+	padding: 0.78rem 0;
+	border-bottom: 1px solid #d8d8d8;
+}
+.comments .comment:last-of-type{
+	border-width: 0;
+}
+.comments .comment .user{
+	display: -webkit-box;
+}
+.comments .comment .user .user_info{
+	padding-left: 0.78rem;
+}
+.comments .comment .user img{
+	height: 3.5rem;
+	width: 3.5rem;
+	border-radius: 1.75rem;
+}
+.comments .comment .resource-scores{
+	display: -webkit-box;
+}
+
+.comments .comment .comment_pic{
+	display: -webkit-box;
+}
+
+.comments .comment .comment_pic .imgFrame{
+	-webkit-box-flex: 1;
+}
+
+.comments .comment .comment_pic .imgFrame img{
+	height: 5.626rem;
+	width: auto;
+}

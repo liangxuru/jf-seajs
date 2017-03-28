@@ -1,0 +1,33 @@
+<!-- 场地详情 -->
+<template v-if="productId">
+	<swiper v-bind:items="imgs"></swiper>
+	<div class="flex-box">
+		<aside>
+			<div class="f28 mg78">{{ info.productName }} ({{ detail.openTime }}-{{ detail.closeTime }})</div>
+			<div class="f24 sub text-overflow"><i class="icon-icon20"></i>{{ detail.address }}</div>
+		</aside>
+		<a href="tel:{{ detail.telephone }}" class="tel icon-icon21 cPrice"></a>
+	</div>
+
+	<div class="bg">
+		<div class="part f28">场地预定</div>
+		<calendar v-bind:items="weekdays"></calendar>
+		<loading v-if="loading"></loading>
+	</div>
+
+	<div class="bg">
+		<tab v-bind:items="['详情','评论']"></tab>
+		<div :class="current==0?'':'fn-hide'" class="part">
+			{{{ info.long_description }}}
+		</div>
+		<div class="{{ current==1?'':'fn-hide'}}">
+			<div class="part" style="text-align:center;">暂无评论</div>
+			<!-- <comment></comment> -->
+		</div>
+	</div>
+</template>
+<template v-else>
+	<div class="noData">
+        <span>还没有数据哦</span>
+    </div>
+</template>

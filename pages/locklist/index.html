@@ -1,0 +1,26 @@
+<!-- 包场列表 -->
+<ul class="list" v-if="hasData">
+	<li v-for="value in resource" track-by="$index">
+		<a v-link="{name:'lockinfo', query:{Id: value.AId,accountName: accountName}}">
+            <div class="shopName"><span>{{value.AShopName}}</span>{{value.ADateStart.formatDate("yyyy-MM-dd")}}至{{value.ADateEnd.formatDate("yyyy-MM-dd")}}</div>
+            <div class="list-li">
+                 <div>
+					<img v-bind:src="imgServer+value.AProductUrl+'?w=70'"/>
+                    <div class="middle">
+                        <span class="money"><i>{{value.AReferPrice | currency '￥'}}</i></span>
+                        <span class="date">{{value.AProductName}} {{value.AWeekDay}}  {{value.AGroundFieldNames}} {{value.AWeekDay}} {{value.ATimeCycle}}</span>
+                    </div>
+                 </div>
+                 <div class="overtime icon-over" v-if="overtime(value.ADateEnd)"></div>
+            </div>
+            <div class="foot"></div>
+
+        </a>
+    </li>
+</ul>
+<template v-else>
+    <div class="noData">
+        <span>还没有数据哦</span>
+    </div>
+</template>
+<loading v-if="loading"></loading>

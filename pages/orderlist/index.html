@@ -1,0 +1,33 @@
+<!-- 订单列表 -->
+<div class="title">
+	<tab v-bind:items="['未消费', '已完结','问题订单']"></tab>
+</div>
+<div style="height: 5.8rem;"></div>
+<!-- <div class="wraper" @scroll="onScroll($event)"> -->
+	<ul class="list" id="oList">
+		<li v-for="value in resource[current].rawItems" track-by="$index">
+			<a v-link="{name:'orderinfo', path: '/orderinfo', query:{orderCode: value.payStatus == 0? value.AOrderGroupId:value.orderCode, accountName: accountName}}">
+	            <div class="shopName"><span>{{value.ShopName}}</span>{{{value | showOrderStatus}}}</div>
+	            <div :class="value.statusId == 21?'list-li':'list-li-n'" data-oid="{{value.orderID}}">
+	                 <div v-if="value.APPType == 3">
+						<img v-bind:src="imgServer+value.thumbnailPath+'?w=70'"/>
+	                    <div class="middle">
+	                        <span class="money"><i>{{value.orderMoney | currency '￥'}}</i></span>
+	                        <span class="date" v-show="$index<2" v-for="it in value.OrderDetails" >{{it.detail}}</span>
+	                    </div>
+	                 </div>
+                    <div v-else>
+						<img v-bind:src="imgServer+value.OrderDetails[0].thumbnail+'?w=70'"/>
+	                    <div class="middle">
+	                        <span class="money"><i>{{value.orderMoney | currency '￥'}}</i></span>
+	                        <span class="date" v-show="$index<2" v-for="it in value.OrderDetails">{{it.detail}}</span>
+	                    </div>
+                    </div>
+	            </div>
+            </a>
+            <div class="foot"><div v-if="value.statusId==21"><span v-if="value.parentPaymentTypeID !=3102" data-oid="{{value.orderCode}}" class="cancelO btn" @click="cancelOrder($event,value.orderCode,value.AOrderGroupId,value.payStatus,value.parentPaymentTypeID)">取消订单</span><span v-if="value.parentPaymentTypeID == 3101 && value.payStatus == 0" data-oid="{{value.orderCode}}" class="payN btn" @click="payAgin(value.AOrderGroupId)">立即支付</span></div></div>
+        </li>
+	</ul>
+	<div class="hasMore" v-if="!resource[current].hasMore">看完辣，别拉了(; >_<)</div>
+<!-- </div> -->
+<loading v-if="loading"></loading>

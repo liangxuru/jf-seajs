@@ -1,0 +1,24 @@
+<div class="info mg78">
+	<img src="../resource/Bitmap10.png" class="bgimg">
+	<div class="people">
+		<img :src="imgServer + info.APic" class="head"/>
+		<div class="name f28">{{ info.ACoachName }}</div>
+		<div class="name f24">{{ info.ASportTypeStr }}教练</div>
+	</div>
+</div>
+
+<div>
+	<tab v-bind:items="['个人介绍','他的课程']" v-bind:current="current"></tab>
+	<div :class="current==0?'':'fn-hide'" class="des">
+		{{{ info.ALongDescription }}}
+	</div>
+	<div class="{{ current==1?'':'fn-hide'}}">
+		<ul class="f24 classlist">
+			<li v-for="class in classList && classList.CCMList">
+				<span style="width: 40%;">{{ class.AClassName }}</span>
+				<span style="width: 25%;">{{ com_status(class.AClassModel) }}</span>
+				<span class="cPrice" style="width: 25%;">{{ Price | currency '￥'}}</span>
+			</li>
+		</ul>
+	</div>
+</div>

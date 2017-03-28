@@ -1,0 +1,32 @@
+/*课程预定*/
+
+.flex-box .pic{
+	margin-right: 10px;
+    width: 46px;
+    height: 46px;
+}
+.flex-box .pic img{
+	width: 46px;
+	height: 46px;
+	border-radius: 3px;
+}
+.item{
+	border-top: 1px solid #d8d8d8;
+	position: relative;
+}
+.change:after{
+    content: " ";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #888;
+    border-right: 1px solid #888;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -5px;
+}
+.change .selected{
+    margin-right: 20px;
+}

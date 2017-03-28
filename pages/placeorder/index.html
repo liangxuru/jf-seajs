@@ -1,0 +1,33 @@
+<!-- 确定订单 -->
+<div class="content">
+	<div class="header">
+	    <div class="part f28">
+	        <div v-cloak><i class="{{ productIcon }} cPrice ithem"></i>{{ productName }}</div>
+	        <template v-for="resource in resourceGroup" v-if="$index < more">
+		        <div class="sub date">{{ resource.date }} {{ resource.week }}</div>
+		        <ul class="productlist">
+			        <li v-for='shop in resource.resource' v-show="inermore?$index<3:true" :key="shop.AGround_Time_AId">
+				        <i :class="`icon-icon31 ${shop.AStatus == 2 ?'cPrice':'sub'}`" @click="select(shop)"></i>
+				        <span class="info">
+					        <a class="flex">{{ shop.AStringTime}} - {{ shop.AEndStringTime }}</a>
+					        <span class="info"><a class="flex">{{ shop.AGroundFieldAName }}</a>
+					        <a class="cPrice">{{ shop.APrice | currency '￥'}}</a></span>
+				        </span>
+			        </li>
+		        </ul>
+	        </template>
+	    </div>
+	    <div v-cloak class="f24" @click="open()" v-bind:class="expand=='展开'?'expand':'unexpand'">{{expand}}</div>
+	</div>
+
+	<div class="bg part">
+	    <div class="f28 mg78">购票需知</div>
+	    <span class="sub f24">当您成功提交订单后，系统将为您保留场地10分钟，如您在10分钟内没有支付，系统将自动取消.</span>
+	</div>
+
+	<div class="pay-container">
+		<payment v-bind:items.sync="resourceGroup"></payment>
+	</div>
+	
+	<loading v-if="loading"></loading>
+</div>

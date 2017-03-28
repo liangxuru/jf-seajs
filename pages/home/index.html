@@ -1,0 +1,94 @@
+<div class="content">
+	<swiper v-bind:items="imgs"></swiper>
+	<div class="bg f28">
+		<div class="part">青少年素质成长</div>
+		<ul class="items">
+			<li>
+				<a v-link="{name:'classlist', path: '/classlist', query:{accountName: accountName}}">
+					<span class="icon-icon1 cPrice"></span>
+					<span class="word">课程</span>
+				</a>
+			</li>
+			<li>
+				<a v-link="{name:'coachlist', path: '/coachlist', query:{accountName: accountName}}">
+					<span class="icon-icon2 cPrice"></span>
+					<span class="word">教练</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="bg f28">
+		<div class="part">体育文化传播</div>
+		<ul class="items">
+			<li>
+				<a v-link="{name:'place', path: '/place', query:{accountName: accountName}}">
+					<span class="icon-icon3 cPrice"></span>
+					<span class="word">场馆</span>
+				</a>
+			</li>
+			<li>
+				<a>
+					<span class="icon-icon4 sub"></span>
+					<span class="word">运动装备</span>
+				</a>
+			</li>
+			<li>
+				<a>
+					<span class="icon-icon5 sub"></span>
+					<span class="word">精彩赛事</span>
+				</a>
+			</li>
+			<li>
+				<a>
+					<span class="icon-icon6 sub"></span>
+					<span class="word">活动</span>
+				</a>
+			</li>
+			<li>
+				<a>
+					<span class="icon-icon7 sub"></span>
+					<span class="word">积分商城</span>
+				</a>
+			</li>
+			<li>
+				<a>
+					<span class="icon-iconx"></span>
+					<span class="word">&nbsp;</span>
+				</a>
+			</li>
+		</ul>
+		<div style="height: 49px;"></div>
+	</div>
+	<div class="footer">
+		<ul>
+			<li>
+				<a class="item">
+					<span class="icon-icon8 cPrice" style="font-size: 2rem;"></span><span class="word f20">首页</span>
+				</a>
+			</li>
+			<li>
+				<a class="item" @click="showCover()">
+					<span class="icon-icon9 item_yue cPrice"></span><span class="f24 word">约</span>
+				</a>
+			</li>
+			<li>
+				<a class="item">
+					<span class="icon-icon10 sub" style="font-size: 2rem;"></span><span class="word f20">我的</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<template v-if="showYue">
+	<div class="cover-bg"></div>
+	<div class="flex-box cover-content">
+		<div class="aside">
+			<div class="L-yue">约人</div>
+		</div>
+		<div class="aside">
+			<div class="R-yue">求约</div>
+		</div>
+	</div>
+	<div class="cover-footer" @click="closeCover()"></div>
+</template>

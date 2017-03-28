@@ -1,0 +1,25 @@
+<!-- 课程预定 -->
+<div class="flex-box">
+	<div class="pic">
+		<img :src="imgServer + info.thumbnail"/>
+	</div>
+	<div class="aside f28">
+		<div class="text-overflow" :style="{width: maxSize + 'px'}">{{ info.productName }}({{ info.short_description }})</div>
+		<div class="cPrice">{{ info.Price | currency '￥'}}</div>
+	</div>
+</div>
+<div class="bgnoMargin part item" @click="openCover()">
+	<div class="change f28"><span class="sub">已选</span> <span class="right selected">{{ select.AIntroduction }}</span></div>
+</div>
+
+<addemploy></addemploy>
+
+<!-- <payment></payment> -->
+<!-- 课程时间选择 -->
+<template v-if="covershow">
+	<seloption v-bind:items="info.CCMList" v-bind:current="select"></seloption>
+</template>
+<!-- 添加学员 -->
+<template v-if="coverEmployShow">
+	<addemploy></addemploy>
+</template>

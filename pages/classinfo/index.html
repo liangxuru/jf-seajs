@@ -1,0 +1,42 @@
+<!-- <template v-if="productId"> -->
+	<swiper v-bind:items="imgs"></swiper>
+
+	<div class="bgnoMargin part">
+		<div class="f28">{{ info.productName }}</div>
+		<div class="f24">{{ info.ACourseType==1?'班课':(info.ACourseType==2?'1对n':'月卡') }}</div>
+		<div><span class="cPrice">{{ Price | currency '￥'}}</span></div>
+	</div>
+
+	<div class="bg part">
+		<template v-if="select.AId">
+			<div class="change f28" @click="openCover()"><span class="sub">已选</span> <span class="right selected">{{ select.AIntroduction }}</span></div>
+		</template>
+		<template v-else>
+			<div class="change f28" @click="openCover()"><span class="sub">选择</span> 上课班级</div>
+		</template>
+	</div>
+
+	<div class="bg">
+		<tab v-bind:items="['详情','评论']"></tab>
+		<div :class="current==0?'':'fn-hide'" class="des">
+			{{{ info.long_description }}}
+		</div>
+		<div class="{{ current==1?'':'fn-hide'}}">
+			<comment></comment>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="ask"><a href="tel:{{ info.ShopTelephone }}"><i class="tel icon-icon21"></i><span class="text">咨询</span></a></div>
+		<div class="sign" @click="SignUp()">报名</div>
+	</div>
+
+	<template v-if="covershow">
+		<seloption v-bind:items="info.CCMList" v-bind:current="select"></seloption>
+	</template>
+<!-- </template> -->
+<!-- <template v-else>
+	<div class="noData">
+        <span>还没有数据哦</span>
+    </div>
+</template>

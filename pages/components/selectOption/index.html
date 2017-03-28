@@ -1,0 +1,20 @@
+<!-- index.html -->
+<div class="cover"></div>
+<div class="cov-control bg part">
+	<a class="close" @click="closeCover()">×</a>
+	<dl class="mg78">
+		<dt class="f28">上课班级</dt>
+		<dd class="btn-view" v-for="item in items" @click="select(item)"><a :class="item.AId==current.AId?'md-btn':'md-btn-empty'">{{ item.AIntroduction }}</a></dd>
+		<!-- <dd class="btn-view"><a class="md-btn-empty">周一至周二16：30－18：00</a></dd>
+		<dd class="btn-view"><a class="md-btn">周一至周二16：30－18：00,周一至周二16：30－18：00</a></dd> -->
+	</dl>
+	<!-- <dl>
+		<dt class="f28">上课老师</dt>
+		<dd class="btn-view"><a class="md-btn-empty">张三</a></dd>
+		<dd class="btn-view"><a class="md-btn-empty">李四</a></dd>
+		<dd class="btn-view"><a class="md-btn">王五</a></dd>
+	</dl> -->
+</div>
+<div class="cov-footer">
+	<p class="cov-view"><a class="bg-btn" @click="submit()">确定</a></p>
+</div>

@@ -1,0 +1,20 @@
+<!-- 时间选择插件 -->
+<div class="seletimes" id="seletimes">
+	<div style="width: 10000px; padding-left: 7rem;">
+		<dl v-for="item in horizontal">
+			<dt id="changdi">{{ item.AGroundFieldFrontStr}}</dt>
+			<template v-for="it in item.AGroundResourcePriceList">
+				<dd v-if="it.AStatus && (new Date(it.AStartDate.substring(0,10).replace('-','/').replace('-','/')+' '+it.AStringTime)>new Date())" @click="choose(it)" class="vv_sel_{{it.AStatus===1?'1': (it.AOccupiedFrom==2||it.AOccupiedFrom==3?'4':'')}}" place="{{it.AGroundFieldAId}}" time="{{it.AGround_Time_AId}}" price="{{it.APrice}}" id="{{it.AId}}">{{it.APrice | currency '￥'}}</dd>
+				<template v-else>
+					<dd v-if="!it.AStatus && it.ACustomId==memberId" class="vv_sel_5 icon-right" place="{{it.AGroundFieldAId}}" time="{{it.AGround_Time_AId}}" price="{{it.APrice}}"></dd>
+					<dd v-else class="vv_sel_3" place="{{it.AGroundFieldAId}}" time="{{it.AGround_Time_AId}}" price="{{it.APrice}}"></dd>
+				</template>
+			</template>
+		</dl>
+	</div>
+</div>
+<div class="selectnom">
+	<!-- 第一列 -->
+	<div style="height: 33px;"></div>
+	<em v-for="item in vertical">{{item}}</em>
+</div>

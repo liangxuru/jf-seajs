@@ -1,0 +1,392 @@
+<!-- 订单详情 -->
+#orderPage{
+    padding-top:5.5rem;
+}
+.headbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background-color:white;
+}
+.headbar>span{
+    background-color:#fe5100;
+    display:block;
+    height:5.5rem;
+    line-height:5.5rem;
+    text-align:center;
+    color:white;
+    font-size:1.6rem;
+    cursor:pointer;
+}
+.headbar>span::after{
+    content: '';
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border: 2px solid white;
+    border-top: 0;
+    border-left: 0;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: relative;
+    left: 0.5rem;
+    top: -0.2rem;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.headbar>span.active::after{
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+    top: 0.1rem;
+}
+.headbar>div{
+    padding:0 1.5rem;
+    display:none;
+}
+.headbar>.active+div{
+    display:block;
+}
+.headbar li{
+    cursor: pointer;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e4e4e4;
+    text-align:center;
+}
+.headbar li:last-child{
+    border-bottom:0;
+}
+
+#oList{
+    
+}
+#oList>ul>li{
+    padding:0;
+    margin-bottom:1rem;
+    background-color:white;
+}
+#oList .shopName{
+    padding: 1.5rem;
+    border-bottom:1px solid #e9e9e9;
+}
+#oList .shopName>span{
+    display:inline-block;
+    vertical-align: middle;
+}
+#oList .shopName>span>i{
+    font-size:1.2rem;
+    color:#fe5100;
+    display: block;
+}
+#oList .shopName>span:first-child{
+    width:71%;
+    font-size:1.5rem;
+}
+#oList .shopName>span:last-child{
+    width:29%;
+    color:#888888;
+    font-size:1.4rem;
+    text-align:right;
+}
+
+#oList .content{
+    padding: 1.5rem;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+#oList .content>img{
+    width:6.4rem;
+    height:6.4rem;
+    vertical-align:middle;
+}
+#oList .content>div{
+    display:inline-block;
+    vertical-align: middle;
+    margin-left:1rem;
+}
+#oList .content>div>span{
+    display:block;
+    color:#888888;
+    margin-bottom:0.6rem;
+}
+#oList .content>div>span.money{
+    color:#fe5100;
+    font-size:1.7rem;
+}
+#oList .content>div>span.count{
+    font-size:1.3rem;
+}
+#oList .content>div>span.count>i{
+    padding:0 0.2rem;
+}
+#oList .content>div>span.date{
+    font-size:1.3rem;
+    margin-bottom:0;
+}
+
+#oList .foot{
+    padding:1.2rem 1.5rem;
+    text-align:right;
+}
+#oList .foot > .btn {
+    margin-left: 2rem;
+    border: 1px solid #888888;
+    color: #888888;
+    font-size: 1.3rem;
+    height:2.8rem;
+    line-height:2.8rem;
+    padding:0 1rem;
+    display: inline-block;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.tip{
+    color: #888888 !important;
+}
+#orderDetail{
+    display:none;
+    padding-top:1rem;
+}
+#orderItems{
+}
+#orderItems>ul{
+    background-color:white;
+    padding-left:1.5rem;
+}
+#evaluatePage ul.noStyle{
+    padding-left:1rem;
+}
+ul.noStyle>li{
+    padding:1rem 1.5rem 1rem 0;
+    border-bottom:1px solid #e9e9e9;
+}
+ul.noStyle>li:last-of-type{
+    border: 0;
+}
+#shopName>span{
+    display:inline-block;
+    vertical-align:middle;
+    font-size:1.6rem;
+    margin-top:-0.1rem;
+}
+#shopName>img{
+    width: 3.3rem;
+    height: 2.3rem;
+    vertical-align: middle;
+    margin-right:1rem;
+}
+#items{
+    font-size:1.3rem;
+}
+#items span{
+    display: inline-block;
+    width: 49%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+#orderContent{
+    margin-top:1rem;
+    color:#888888;
+
+    padding-left: 1.5rem;
+    background-color: white;
+}
+#orderContent li:first-child{
+    color:#1a1a1a;
+    padding:1.4rem 1.5rem 1.4rem 0;
+    font-size:1.6rem;
+}
+#orderContent li:first-child>span:last-child{
+    font-size:1.2rem;
+    text-align:right;
+    margin-top:0.3rem;
+    min-height: 0;
+}
+#orderContent li>span{
+    display:block;
+}
+#orderContent li>span:first-child{
+    float:left;
+}
+#orderContent li>span:last-child{
+    margin-left: 7rem;
+    min-height: 1.9rem;
+}
+
+.listPage {
+    position: absolute;
+    z-index:10;
+    top:0;
+    bottom:0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow-x:hidden;
+    text-align: right;
+    display:none;
+    cursor:pointer;
+}
+.listPage.active {
+    display:block;
+}
+.listPage > .arrowRight {
+    position: fixed;
+    top: 50%;
+    margin-top: -1rem;
+    left: 7%;
+    -moz-animation: arrowRight 1.5s infinite ease-in-out;
+    -o-animation: arrowRight 1.5s infinite ease-in-out;
+    -webkit-animation: arrowRight 1.5s infinite ease-in-out;
+    animation: arrowRight 1.5s infinite ease-in-out;
+}
+.listPage>.wrap{
+    display:inline-block;
+    width: 80%;
+    min-height: 100%;
+    text-align:left;
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -moz-transition: ease-in-out 0.3s;
+    -o-transition: ease-in-out 0.3s;
+    -webkit-transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.3s;
+    background-color:#f3f3f3;
+}
+.listPage > .wrap.active {
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    padding-bottom: 6rem;
+}
+.listPage > .wrap>div{
+    background-color:white;
+    margin-bottom:1rem;
+}
+.listPage > .wrap>div textarea{
+    resize:none;
+    width:100%;
+    border:0;
+}
+.listPage > .wrap>div .noP{
+    padding:0;
+}
+.listPage > .wrap>div li:last-child{
+    border-bottom:0;
+}
+.listPage > .wrap>div li>span{
+    display:inline-block;
+    vertical-align:middle;
+}
+.score{
+    background: url(../img/w_12.png) no-repeat 0 center;
+    background-size: 60rem 3rem;
+    width: 15rem;
+    height: 3rem;
+    display: inline-block;
+    margin-left:2rem;
+    cursor:pointer;
+    background-position: -0.2%;
+}
+.score.s0{
+    background-position: 33%;
+}
+.score.s1{
+    background-position: 26.4%;
+}
+.score.s2{
+    background-position: 19.7%;
+}
+.score.s3{
+    background-position: 13.2%;
+}
+.score.s4{
+    background-position: 6.5%;
+}
+#subComments{
+    width: 100%;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    background-color: #fe5100;
+    margin-top: 1rem;
+}
+#empty{
+    position: absolute;
+    display: table;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+#empty>div{
+    position: relative;
+    top: -5rem;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+#empty>div>*{
+    display:block;
+}
+#empty>div>img{
+    width:7.4rem;
+    margin:auto;
+    padding-bottom:1.2rem;
+}
+#empty>div>span:nth-of-type(1){
+    font-size:1.8rem;
+    padding-bottom:0.8rem;
+}
+    #empty > div > span:nth-of-type(2) {
+        cursor:pointer;
+        height: 3.5rem;
+    line-height: 3.5rem;
+    width: 12.8rem;
+    color: #fe5100;
+    border: 1px solid #dadada;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: auto;
+    background-color: white;
+    }
+
+    #OrderDetails{
+    margin-top:1rem;
+    color:#888888;
+
+    padding-left: 1.5rem;
+    background-color: white;
+}
+
+#OrderDetails span{
+	display:inline-block;
+}
+
+.title{
+    padding: 1rem 0 .2rem 1.3rem;
+    color: #999;
+}
+.table{
+    border-collapse: collapse;
+    text-align: center;
+}
+.table th{
+    padding: 5px 0;
+}
+.table td{
+    border: 1px solid #e9e9e9;
+    padding: 5px 0;
+}

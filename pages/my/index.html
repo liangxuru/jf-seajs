@@ -1,0 +1,97 @@
+
+<div id="sList" class="listPage">
+    <span class="arrowRight"></span>
+    <div class="wrap"></div>
+</div>
+<div id="mpList" class="listPage">
+    <span class="arrowRight"></span>
+    <div class="wrap"></div>
+</div>
+<div id="editMobile" class="listPage">
+    <div class="wrap">
+        <div id="content" class="content">
+            <div style="font-size: 1.6rem;margin-top: -1rem;margin-bottom: 2rem;">修改您的手机号</div>
+            <div id="person">
+                <div>
+                    <input id="mobileNew" type="text" placeholder="您的新手机号" maxlength="11">
+                    <i class="require" style="left:9.8rem;">*</i>
+                    <button class="btn fe51 code">获取验证码</button>
+                </div>
+                 <div>
+                    <input id="code" type="text" placeholder="验证码" maxlength="6">
+                    <i class="require" style="left:5.6rem;">*</i>
+                </div>
+            </div>
+        </div>
+        <button id="doUpdate" class="btn fe51">确认修改</button>
+    </div>
+</div>
+<!-- OA -->
+<div id="oaLogin" class="listPage ">
+    <div class="wrap ">
+        <div>
+            <div>
+                <ul class="noStyle tab">
+                    <li class="active">本部员工</li>
+                    <li>外部员工</li>
+                </ul>
+            </div>
+            <ul id="inner" class="noStyle">
+                <li><input id="oaID" type="tel" maxlength="20" placeholder="OA号"/></li>
+                <li><input id="oaPwd" type="password" maxlength="20" placeholder="OA密码"/></li>
+            </ul>
+            <ul id="outer" style="display:none;" class="noStyle">
+                <li><input name="pCom" type="text" maxlength="20" placeholder="公司名称"/></li>
+                <li><input name="pDep" type="text" maxlength="20" placeholder="所属部门"/></li>
+                <li><input name="pUnit" type="text" maxlength="20" placeholder="业务单元"/></li>
+                <li><input name="pCenter" type="text" maxlength="20" placeholder="业务中心"/></li>
+                <li><input name="pName" type="text" maxlength="30" placeholder="项目名称"/></li>
+                <li><input name="pCode" type="text" maxlength="30" placeholder="项目编号"/></li>
+                <li>
+                    <select name="pStatus" >
+                        <option value="" disabled selected hidden>项目状态</option>  
+                        <option value="在建">在建</option>  
+                        <option value="售后">售后</option>  
+                        <option value="机组代维">机组代维</option>
+                        <option value="变电运维">变电运维</option>
+                        <option value="光伏运维">光伏运维</option>  
+                        <option value="无">无</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div id="doLogin" class="btn btnW fe51">登陆</div>
+        <div id="doSave" class="btn btnW fe51">保存</div>
+        <div id="closeOA" class="btn btnW">返回</div>
+    </div>
+</div>
+<!-- 主页 -->
+<div id="infoPage">
+    <div id="base">
+        <img id="headImg" v-bind:src="current.userData.headImg"/>
+        <div>
+            <span id="name">{{current.userData.name}}</span>
+            <span id="mobile">{{current.userData.mobile}}</span>
+        </div>
+    </div>
+    <div id="shop">
+        <ul class="noStyle">
+            <li class="icon shop" id="shopName" style="padding-left: 3rem;">{{current.userData.shopName}}</li>
+            <a id="upCom">完善个人信息</a>
+        </ul>
+    </div>
+    <div id="oaInfo">
+        <ul class="noStyle">
+            <li class="qh" data-ref="orderlist"><i class="icon-order f30 cPrice"></i> 我的预订</li>
+            <li class="qh" data-ref="locklist"><i class="icon-icon35 f30 cPrice"></i> 我的包场</li>
+            <li><i class="icon-icon34 f30 sub"></i> 我的课程</li>
+        </ul>
+    </div>
+    <div id="cmInfo">
+        <ul class="noStyle">
+            <li class="mp"><i class="icon-bag f30 cPrice"></i>钱包</li>
+            <li><i class="icon-youhuiquan f30 sub"></i>优惠券</li>
+        </ul>
+    </div>
+    <button id="exit" v-show="current.aType=='link'">退出登录</button>
+</div>

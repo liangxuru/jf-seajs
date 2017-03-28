@@ -1,0 +1,52 @@
+.floatRight{
+	width: 25%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 101;
+	-moz-animation: arrowRight 1.5s infinite ease-in-out;
+    -o-animation: arrowRight 1.5s infinite ease-in-out;
+    -webkit-animation: arrowRight 1.5s infinite ease-in-out;
+    animation: arrowRight 1.5s infinite ease-in-out;
+}
+.floatRight:before{
+	display: block;
+	content: " ";
+	width: 16px;
+	height: 16px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+	left: 40%;
+	transform: rotate(45deg);
+}
+.floatBox{
+	width: 75%;
+    height: 100%;
+    position: fixed;
+    background-color: #eeeeee;
+    top: 0;
+    right: 0;
+    z-index: 101;
+}
+
+.floatBox li{
+	padding: 0.78rem;
+	background-color: #fff;
+	margin: 0.78rem 0;
+}
+.floatBox li:after{
+	display: inline-block;
+	content: " ";
+	width: 10px;
+	height: 10px;
+	border-top: 1px solid #d8d8d8;
+	border-right: 1px solid #d8d8d8;
+	transform: rotate(45deg);
+	float: right;
+	margin-right: 0.78rem;
+	margin-top: 5px;
+}

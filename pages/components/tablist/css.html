@@ -1,0 +1,43 @@
+
+.wrapper{
+	width: 100%;
+	height: 100%;
+	overflow-x: auto;
+    overflow-y: hidden;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+	padding: 0.78rem 0;
+	border-top: 1px solid #d8d8d8;
+}
+.wrapper .scroller{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    min-width: 100%;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+}
+.wrapper .scroller .item{
+	display: block;
+	padding: 0.78rem;
+	width: 105px;
+	text-align: center;
+}
+.wrapper .scroller .item .icon{
+	background-color: #00bcf7;
+	color: #fff;
+	width: 3.2rem;
+	height:3.2rem;
+	line-height: 3.2rem;
+	display: inline-block;
+	border-radius: 50%;
+	text-align: center;
+}
+.wrapper .scroller .item .text{
+	width: 60px;
+	margin-top: 5px;
+}

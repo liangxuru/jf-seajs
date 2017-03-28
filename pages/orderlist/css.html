@@ -1,0 +1,128 @@
+<!-- 订单列表 -->
+#oList>ul>li{
+    padding:0;
+    margin-bottom:1rem;
+    background-color:white;
+}
+#oList .shopName{
+    padding: 1.45rem;
+    border-bottom:1px solid #e9e9e9;
+}
+#oList .shopName>span{
+    display:inline-block;
+    vertical-align: middle;
+}
+#oList .shopName>span>i{
+    font-size:1.2rem;
+    color:#fe5100;
+    display: block;
+}
+#oList .shopName>span:first-child{
+    width:70%;
+    font-size:1.5rem;
+}
+#oList .shopName>span:last-child{
+    width:30%;
+    color:#888888;
+    font-size:1.4rem;
+    text-align:right;
+}
+
+#oList .list-li, #oList .list-li-n{
+    padding: .5rem 0 .5rem 1rem;
+    border-bottom:1px solid #e9e9e9;
+    cursor:pointer;
+}
+
+#oList .list-li img, #oList .list-li-n img{
+    width:6.4rem;
+    height:6.4rem;
+    vertical-align:middle;
+}
+#oList .list-li .middle, #oList .list-li-n .middle{
+    display:inline-block;
+    vertical-align: middle;
+    margin-left:1rem;
+}
+#oList .list-li .middle>span,#oList .list-li-n .middle>span{
+    display:block;
+    color:#888888;
+    margin-bottom:0.6rem;
+}
+#oList .list-li .middle>span.money,#oList .list-li-n .middle>span.money{
+    color:#fe5100;
+    font-size:1.7rem;
+}
+#oList .list-li .middle>span.count, #oList .list-li-n .middle>span.count{
+    font-size:1.3rem;
+}
+#oList .list-li .middle>span.count>i,#oList .list-li-n .middle>span.count>i{
+    padding:0 0.2rem;
+}
+#oList .list-li .middle>span.date,#oList .list-li-n .middle>span.date{
+    font-size:1.3rem;
+    margin-bottom:0;
+    max-width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#oList .foot{
+    padding:1.2rem 1.5rem;
+    text-align:right;
+}
+#oList .foot div > .btn {
+    margin-left: 2rem;
+    border: 1px solid #888888;
+    color: #888888;
+    font-size: 1.3rem;
+    height:2.8rem;
+    line-height:2.8rem;
+    padding:0 1rem;
+    display: inline-block;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#oList {
+    background-color: #eeeeee;
+}
+
+#oList li{
+    background-color: white;
+    margin-bottom:0.5rem;
+}
+.title{
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+.list-li, .list-li-n{
+    position: relative;
+    height: 7.5rem;
+    -webkit-transform: translateX(0px);
+}
+.btn-cancel{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: -80px;
+    text-align: center;
+    background: #6cd9fd;
+    color: #fff;
+    width: 80px;
+    line-height: 7.5rem;
+}
+<!-- .wraper{
+  height:100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+} -->
+.hasMore{
+    text-align: center;
+}

@@ -1,0 +1,10 @@
+<!-- calendar.html -->
+<div class="wrapper">
+	<div class="scroller">
+		<a class="item {{ $index==current?'current':'' }}" v-for="item in items" v-on:click="select($index)" v-link="item.Path">
+			<span class="f24">{{ item.Week }} <template v-show="item.Price"><i class="c_gold">￥{{ item.Price }}</i>起</template></span>
+			<span class="f20">{{ item.ADate.formatDate('MM/dd') }}</span>
+			<span class="f22">剩余{{ item.count }}</span>
+		</a>
+	</div>
+</div>

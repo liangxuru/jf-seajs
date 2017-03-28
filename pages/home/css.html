@@ -1,0 +1,118 @@
+
+.items{
+	list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.items li{
+	display: inline-block;
+	float: left;
+	width: 50%;
+	border-top: 1px solid #d8d8d8;
+	text-align: center;
+	padding: 1rem;
+}
+.items li:nth-child(2n){
+	border-left:1px solid #d8d8d8;
+}
+.word{
+	display: block;
+}
+.items [class^="icon-"]:before,.items [class*=" icon-"]:before{
+	font-size: 3rem;
+}
+.icon-icon9:before{
+	font-size: 4rem;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+}
+.footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	margin-top: 0.78rem;
+}
+.footer ul{
+	width: 100%;
+	display: flex;
+	align-items: center; 
+  	-webkit-align-items: center;
+  	justify-content: center;
+  	-webkit-justify-content: center;
+  	border-top: 1px solid #d8d8d8;
+}
+.footer ul li{
+	flex: 1;
+	text-align: center;
+	background-color: #fff;
+}
+.footer .item{
+	display: inline-block;
+	position: relative;
+}
+.footer .item .item_yue{
+	display: inline-block;
+    width: 60px;
+    height: 30px;
+    border: 1px solid #d8d8d8;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+    top: -30px;
+    background-color: #fff;
+    border-bottom-width: 0;
+}
+.cover-bg{
+	background-color: rgba(255, 255, 255, .8);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+}
+.cover-content{
+	position: absolute;
+	bottom: 9.8rem;
+	left: 0;
+	right: 0;
+	z-index: 101;
+}
+.cover-content .L-yue, .cover-content .R-yue{
+	width: 10.7rem;
+	height: 10.7rem;
+	line-height: 10.7rem;
+	text-align: center;
+	color: #fff;
+	border-radius: 50%;
+	font-size: 2.5rem;
+	margin: 0 auto;
+}
+.cover-content .L-yue{
+	background-color: #ffb500;
+}
+
+.cover-content .R-yue{
+	background-color: #00bcf7;
+}
+
+.cover-footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 8.8rem;
+	line-height: 8.8rem;
+	z-index: 101;
+	text-align: center;
+}
+.cover-footer:after{
+	content: "+";
+	display: inline-block;
+	transform: rotate(45deg);
+	font-size: 7rem;
+	color: #888889;
+}

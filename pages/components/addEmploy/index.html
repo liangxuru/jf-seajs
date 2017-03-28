@@ -1,0 +1,26 @@
+<!-- index.html -->
+<template v-if="covershow">
+	<div class="cover"></div>
+	<div class="cov-form bg part">
+		<a class="close" @click="closeCover()">×</a>
+		<ul class="form">
+			<li><span class="key">姓名</span><span class="value"><input type="text" class="input" /></span></li>
+			<li><span class="key">性别</span><span class="value"><span class="cut" style="width: 30%;"><select class="input"><option>男</option><option>女</option></select></span><span class="cut" style="width: 70%;"><span class="key">年龄</span><span class="value"><input type="text" class="input" /></span></span></span></li>
+			<li><span class="key">身份证号</span><span class="value"><input type="text" class="input" /></span></li>
+		</ul>
+		<div class="flex-box">
+			<a class="aside md-btn-empty" @click="closeCover()">取消</a>
+			<a class="md-btn aside confirm">确定</a>
+		</div>
+	</div>
+</template>
+<div class="bg">
+	<ul class="customer-list">
+		<li v-for="customer in customers" class="flex-box">
+			<i class="icon-icon31 {{customer.AStatus == 2 ?'cPrice':'sub'}}" @click="select(customer)"></i><span class="aside customer-content"><span>{{ customer.name }}</span><span>{{ customer.sex }}</span><span>{{ customer.age }}</span><span>{{ customer.idno | idformat }}</span></span>
+		</li>
+	</ul>
+</div>
+<div class="bgnoMargin part add-employ f28" @click="addEmploy()">
+	添加学员
+</div>

@@ -1,0 +1,35 @@
+<!-- 订单详情 -->
+<div id="orderItems">
+    <ul class="noStyle">
+        <li id="shopName"><img v-bind:src="imgServer+ order.thumbnailPath+'?w=70'"/><span>{{order.ShopName}}</span></li>
+        <li id="items">
+            <div><div>{{order.OrderDetails && order.OrderDetails[0].productName}}</div><div><span></span><span><i>{{order.orderMoney | currency '￥'}}</i></span></div></div>
+        </li>
+        <li id="privilege" v-show="order.OrderPrizes">
+            <template v-if="order.OrderPrizes">
+				<div v-for="(key, value) of order.OrderPrizes"><div>{{key}}</div><div><span>-</span><span><i>{{-(value) |  currency '￥'}}</i></span></div></div>
+            </template>
+        </li>
+        <li id="result">
+        <div v-if="order.statusId==21"><span v-if="value.parentPaymentTypeID != 3102" data-oid="{{order.orderCode}}" class="cancelO btn" @click="cancelOrder($event,order.orderCode,order.AOrderGroupId,order.payStatus,order.parentPaymentTypeID)">取消订单</span><span v-if="order.parentPaymentTypeID == 3101 && order.payStatus == 0" data-oid="{{order.orderCode}}" class="payN btn" @click="payAgin(order.AOrderGroupId)">立即支付</span>
+        </div><div>{{ order.payStatus?'实付':'应付'}}<i>{{ order.parentPaymentTypeID!=3101 && order.payStatus?order.cashreceive:order.cashpay | currency '￥'}}</i></div></li>
+    </ul>
+</div>
+
+<div id="orderContent">
+    <ul class="noStyle">
+        <li><span>订单详情</span><span>订单号：<i>{{order.orderCode}}</i></span></li>
+        <li><span>联系人：</span><span>{{order.OrderReceiverName}}</span></li>
+        <li><span>联系电话：</span><span>{{order.OrderReceiverMobile}}</span></li>
+        <li><span>支付状态：</span><span>{{{order | showOrderStatus}}}</span></li>
+        <li><span>支付方式：</span><span>{{order.parentPaymentTypeID==3101?"在线支付":"货到付款"}}</span></li>
+        <li><span>下单时间：</span><span>{{ modifyDate(order.orderTime)}}</span></li>
+        <li><span>备注信息：</span><span>{{order.diliveryTimeDescription}}</span></li>
+    </ul>
+</div>
+
+<div id="OrderDetails">
+    <ul class="noStyle">
+        <li v-for="item in order.OrderDetails">{{item.detail}}</li>
+    </ul>
+</div>

@@ -1,0 +1,26 @@
+<!-- 场馆预定 -->
+<div class="header">
+	<calendar v-bind:items="weekdays" v-bind:current="current"></calendar>
+</div>
+<div style="height: 8rem;"></div>
+<div class="bgnoHide">
+	<div class="sel_status f20">
+		<span><font class="border_gray color_blue"></font><div>已选择</div></span>
+		<span><font class="border_gray"></font><div>可定</div></span>
+		<span><font class="border_gray color_gray"></font><div>不可定</div></span>
+		<span><font class="border_gold"></font><div>企业专场</div></span>
+		<span><font class="border_gray icon-right color_blue_sel"></font><div>已预订</div></span>
+	</div>
+	<div class="selectday">
+		<selecttime v-bind:vertical="prices.vertical" v-bind:horizontal.sync="prices.horizontal"></selecttime>
+		<loading v-if="loading"></loading>
+	</div>
+</div>
+<div style="height: 5.8rem"></div>
+<div class="footer">
+	<div class="price">
+		<span class="total f24">总额: </span><span class="cPrice f36">{{ amount | currency '￥'}}</span>
+		<a class="mycar icon-icon24"><i class="order-numbers" id="carNum">{{ selectItems.length }}</i></a>
+	</div>
+	<a class="next" @click="Submit()">下一步</a>
+</div>

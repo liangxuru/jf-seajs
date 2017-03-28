@@ -1,0 +1,45 @@
+/*置顶日历 */
+.wrapper{
+	width: 100%;
+	height: 8rem;
+	line-height: 1.9rem;
+	overflow-x: auto;
+    overflow-y: hidden;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+}
+.wrapper .scroller{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    min-width: 100%;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    background-color: #fff;
+}
+.wrapper .scroller .item{
+	display: block;
+	background-color: #fff;
+	border-bottom: 1px solid #d8d8d8;
+	border-right: 1px solid #d8d8d8;
+
+}
+.wrapper .scroller .item.current span{
+	color: #fff;
+	background-color: #00bcf7;
+}
+.wrapper .scroller .item span{
+	display: block;
+	width: 7rem;
+	padding-left: 1.16rem;
+}
+.wrapper .scroller .item span:first-of-type{
+	padding-top: 1.16rem;
+}
+.wrapper .scroller .item span:last-of-type{
+	padding-bottom: 1.16rem;
+}

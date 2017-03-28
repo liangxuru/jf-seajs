@@ -1,0 +1,61 @@
+
+.info{
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.info .bgimg{
+    width: 100%;
+    height: 100%;
+    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(3px); /* Chrome, Opera */
+       -moz-filter: blur(3px);
+        -ms-filter: blur(3px);    
+            filter: blur(3px);
+}
+.info .people{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-left: -50px;
+}
+.info .head{
+    width: 7.58rem;
+    height: 7.58rem;
+    border-radius: 50%;
+    border: 3px solid rgb(135,139,142);
+}
+.info .name{
+    color: #fff;
+}
+.classlist li{
+    padding: 0.78rem;
+    background-color: #fff;
+    margin: 0.78rem 0;
+    width: 100%;
+    position: relative;
+}
+.classlist li:after{
+    display: inline-block;
+    content: " ";
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 0.78rem;
+    top: 1rem;
+}
+.classlist li span{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.des{
+    padding: 10px;
+    overflow: auto;
+}

@@ -1,0 +1,4 @@
+<!-- tab 插件 -->
+<ul class="tabs f28">
+	<li :style="{width: width}" class="tab part {{ $index==current?'current':'' }}" @click="select($index)" v-for="item in items">{{ item }}</li>
+</ul>

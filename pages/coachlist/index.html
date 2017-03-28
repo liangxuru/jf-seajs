@@ -1,0 +1,18 @@
+<!-- 课程列表 -->
+<search v-bind:query-text="search"></search>
+<div class="bgnoMargin" style="position: fixed;top: 6.7rem;left: 0;right: 0;z-index: 100;border-bottom: 1px solid #eee;">
+	<tablist></tablist>
+</div>
+<div class="bg" style="top:16.7rem;">
+	<list v-bind:items="coachList" v-bind:page.sync="page" v-bind:has-more="hasMore"></calendar>
+</div>
+
+<template v-if="places.length && showCover">
+	<div class="cover"></div>
+	<ul class="floatBox">
+		<li v-for="place in places" @click="selectPlace(place.id)">
+			{{ place.name }}
+		</li>
+	</ul>
+	<div class="floatRight" @click="closeCover()"></div>
+</template>

@@ -1,0 +1,37 @@
+<!-- 支付插件 -->
+<div class="payment">
+	<!-- 优惠券 -->
+	<div class="bg part">
+		<div class="left"><span class="f28"><i class="icon-icon27 cGold"></i>优惠券</span></div>
+		<div class="right"><span class="f28 direct"><a class="cPrice">0</a> 张可用</span></div>
+	</div>
+	<!-- 会员卡 -->
+	<div class="bg part" @click="selectCard()">
+		<div class="left"><span class="f28"><i class="icon-icon28 cPrice"></i>会员卡</span></div>
+		<div class="right"><span class="f28"><a class="cPrice">{{ customer && customer.ABalance || 0 | currency '￥'}}</a> <i class="icon-icon30 {{ cardPrice?'cPrice':'sub' }}"></i></span></div>
+	</div>
+	<!-- 微信支付 -->
+	<div class="bg part" @click="selectWx()">
+		<div class="left"><div class="f28"><i class="icon-icon29 cGreen"></i>微信支付</div><div class="sub f24" style="margin-left: 25px;">推荐有微信帐户的用户使用</div></div>
+		<div class="right f28"><i class="icon-icon30 {{ wxPrice?'cPrice':'sub' }}"></i></div>
+	</div>
+	<!-- 商品金额 -->
+	<div class="bg part">
+		<div class="left mg78"><span class="f28">商品金额</span></div>
+		<div class="right"><a class="cPrice">{{ amount | currency '￥'}}</a></div>
+		<div class="clear"></div>
+		<template v-if="zhekou[0]>0"><div class="left mg78"><span class="f24">会员卡折扣<span class="f22 sub">({{customer.levelZheKou*10}}折)</span></span></div>
+		<div class="right"><a class="cPrice">- {{ zhekou[0] | currency '￥' }}</a></div></template>
+		<div class="clear"></div>
+		<template v-if="zhekou[1]>0"><div class="left mg78"><span class="f24">企业折扣<span class="f22 sub">({{customer.companyInfo && customer.companyInfo[0].shopZheKou*10}}折)</span></span></div>
+		<div class="right"><a class="cPrice">- {{ zhekou[1] | currency '￥' }}</a></div></template>
+		<div class="clear"></div>
+		<template v-if="cardPrice"><div class="left"><span class="f24">会员卡</span></div>
+		<div class="right"><a class="cPrice">- {{ cardPrice | currency '￥' }}</a></div></template>
+	</div>
+</div>
+<div style="height: 5.8rem;"></div>
+<div class="footer">
+	<div class="price"><a class="total f24">实付款: <a class="cPrice f36" style="margin-left: 0.5rem;">{{ wxPrice | currency '￥' }}</a></a></div>
+    <a class="next" @click="submit()" >提交订单</a>
+</div>

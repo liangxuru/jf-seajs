@@ -1,0 +1,17 @@
+<!-- 列表 -->
+<ul class="list">
+	<li v-for="item in list" @click="selectItem(item, $event)">
+		<div class="pic">
+			<img :src="imgServer + item.imgPath" />
+		</div>
+		<div class="list-content">
+			<div class="f28 mg78">{{ item.title }}</div>
+			<div class="sub f24">{{ item.des }}</div>
+			<div class="f28 bgnoHide">
+				<div class="left cPrice" v-if="item.price">{{ item.price | currency '￥'}}</div>
+				<div class="right" v-if="item.hasbtn"><input class="btn" type="button" value="报名" /></div>
+			</div>
+		</div>
+	</li>
+</ul>
+<div class="hasNo" v-show="!hasMore">看完辣，别拉了(; >_<)</div>

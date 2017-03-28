@@ -1,0 +1,37 @@
+<!-- 锁定详情 -->
+<div id="orderItems">
+    <ul class="noStyle">
+        <li id="shopName"><img v-bind:src="imgServer+ order.AShopUrl+'?w=70'"/><span>{{order.AShopName}}</span></li>
+        <li id="items">
+            <div>
+                <span>{{order.AProductName}}</span>
+                <span>参考金额:{{order.AReferPrice | currency '￥'}}</span>
+            </div>
+            <div>
+                <span></span>
+                <span>实收金额:<strong class="cPrice">{{order.APrice | currency '￥'}}</strong></span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div id="orderContent">
+    <ul class="noStyle">
+        <li><span>有效期</span><span>{{order.ADateStart.formatDate("yyyy-MM-dd")}}至{{order.ADateEnd.formatDate("yyyy-MM-dd")}}</span></li>
+        <li><span>场地</span><span>{{order.AGroundFieldNames}}</span></li>
+        <li><span>周期</span><span>{{order.AWeekDay}}</span></li>
+        <li><span>时间段</span><span>{{order.ATimeCycle}}</span></li>
+    </ul>
+</div>
+
+<div class="title">异常记录</div>
+<div class="bgnoMargin">
+    <table width="100%" class="table">
+        <tr><th>详情</th><th>原因</th><th>参考退款</th></tr>
+        <tr v-for="item in order.AGroundRequisitionDetail">
+            <td>{{item.ADetail}}</td>
+            <td>{{item.AComment}}</td>
+            <td>{{item.APrice | currency '￥'}}</td>
+        </tr>
+    </table>
+</div>

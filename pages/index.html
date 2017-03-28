@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>金风大学</title>
+    <link charset="utf-8" rel="stylesheet" href="base.css">
+    <link charset="utf-8" rel="stylesheet" href="common.css">
+    <link charset="utf-8" rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <!-- 路由外链 -->
+        <router-view></router-view>
+    </div>
+</div>
+<script src="../lib/jquery.js"></script>
+<script src="../lib/common.js"></script>
+<script src="../lib/business.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../lib/layer.js"></script>
+<script src="../lib/sea.js"></script>
+<script src="../lib/vue.js"></script>
+<script src="../lib/vue-router.min.js"></script>
+<script>
+    var gMain = {
+        verson:"2.0",
+        basePath:"/JF/"
+    };
+
+    /**
+     * seajs配置信息
+     */
+    seajs.config({
+         //base: "../../JF",  //seajs的基础路径（组织人事，元数据项目的模块）
+        charset: 'utf-8',
+        map: [[ /^(.*\.(?:css|js|html|tpl))(.*)$/i, '$1?v=_VERSION_'+'-'+gMain.verson]],  //加上版本号，清缓存用
+        //公共路径
+        paths:{
+
+        }
+    });
+
+    //解决移动端click事件300ms的延迟响应
+    $(function() {
+        FastClick.attach(document.body);
+
+        checkAuth(function(){
+            seajs.use(["./app.js"]);
+        });
+    });
+
+</script>
+</body>
+</html>
