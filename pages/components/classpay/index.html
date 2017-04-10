@@ -16,8 +16,8 @@
 		<div class="right f28"><i class="icon-icon30 {{ wxPrice?'cPrice':'sub' }}"></i></div>
 	</div>
 	<!-- 线下支付 -->
-	<div class="bg part" v-if="amount>=5000">
-		<div class="left"><div class="f28"><i class="icon-icon29 cGreen"></i>线下支付</div><div class="sub f24" style="margin-left: 25px;">金额大于5000需现场支付</div></div>
+	<div class="bg part" v-if="amount>=5000" @click="selectXX()">
+		<div class="left"><div class="f28"><i class="icon-bag cGreen"></i>线下支付</div><div class="sub f24" style="margin-left: 25px;">金额大于5000需现场支付</div></div>
 		<div class="right f28"><i class="icon-icon30 {{ wxPrice?'cPrice':'sub' }}"></i></div>
 	</div>
 	<!-- 商品金额 -->
@@ -25,7 +25,7 @@
 		<div class="left mg78"><span class="f28">商品金额</span></div>
 		<div class="right"><a class="cPrice">{{ amount | currency '￥'}}</a></div>
 		<div class="clear"></div>
-		<template v-if="discount>0"><div class="left mg78"><span class="f24">学员折扣<span class="f22 sub"></span></span></div>
+		<template v-if="discount>0"><div class="left mg78"><span class="f24">老学员折扣<span class="f22 sub"></span></span></div>
 		<div class="right"><a class="cPrice">- {{ discount | currency '￥' }}</a></div></template>
 		<div class="clear"></div>
 		<template v-if="cardPrice"><div class="left"><span class="f24">会员卡</span></div>

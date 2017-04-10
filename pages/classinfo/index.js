@@ -27,14 +27,17 @@ define(function (require,exports,module) {
                 imgs: [],
 	        	info: {},
                 select: {},
-                covershow: false
+                covershow: false,
+                current: 0
 	        }
         },
         init: function(){
             classService.GetClassInfo({
-                id: 1947//this.$route.query.Id
+                id: this.$route.query.Id
             }).then(function(data){
-                this.imgs.push({id: 1, url: data.imgPath});
+                this.imgs.push({id: 1, url: data.PollingImg1});
+                this.imgs.push({id: 2, url: data.PollingImg2});
+                this.imgs.push({id: 3, url: data.PollingImg3});
                 this.info = data;
             }.bind(this));
         },
@@ -44,6 +47,9 @@ define(function (require,exports,module) {
             },
             selectOption: function(item){
                 this.select = item;
+            },
+            select: function(value){
+                this.current = value;
             }
         },
         methods: {
@@ -55,7 +61,7 @@ define(function (require,exports,module) {
                     message.error("您还未选择资源");
                 }else{
                     store.set(storeKey, this.select);
-                    this.$router.go({path: 'classbook', name: 'classbook', query: { id: this.$route.query.Id, accountName: this.$route.query.accountName}});
+                    this.$router.go({path: 'classbook', name: 'classbook', query: { Id: this.$route.query.Id, accountName: this.$route.query.accountName}});
                 }
             }
         }

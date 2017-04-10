@@ -12,7 +12,7 @@ define(function (require,exports,module) {
 
     // 定义路由规则
     router.map({
-        '/home': {
+        '/home/:accountName': {
             docTitle: '主页',
             component: function (resolve) {
                 require.async(['./home/index.js'],resolve);
@@ -80,7 +80,7 @@ define(function (require,exports,module) {
                 require.async(['./orderlist/index.js'],resolve);
             }
         },
-        '/success/:orderCode/:accountName': {
+        '/success/:orderCode/:accountName/:canshow': {
             name: "success",
             docTitle: '成功页',
             component: function (resolve) {

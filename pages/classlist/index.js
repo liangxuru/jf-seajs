@@ -35,7 +35,6 @@ define(function (require,exports,module) {
                 this.getClassList();
             },
             selectItem: function(item){
-                console.log(item);
                 this.$router.go({name: 'classinfo', query: {accountName: getLocalData("currentAN"), Id: item.id}});
             },
             selectSportType: function(item){
@@ -60,6 +59,7 @@ define(function (require,exports,module) {
                         arr.push({
                             id: item.productId,
                             title: item.productName,
+                            price: item.Price,
                             des: item.short_description,
                             imgPath: item.thumbnail,
                             hasbtn: true

@@ -12,7 +12,7 @@
 	<div class="change f28"><span class="sub">已选</span> <span class="right selected">{{ select.AIntroduction }}</span></div>
 </div>
 
-<addemploy></addemploy>
+<addemploy v-bind:customers="customer"></addemploy>
 
 <payment v-bind:items="customer" v-bind:product="info"></payment>
 <!-- 课程时间选择 -->

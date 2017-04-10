@@ -15,9 +15,11 @@ define(function (require,exports,module) {
         		imgs: [{
         			id: 1,
         			url: '../resource/banner.png',
+                    Absolute: true
         		},{
         			id: 2,
-        			url: '../resource/Bitmap3.png'
+        			url: '../resource/Bitmap3.png',
+                    Absolute: true
         		}],
                 showYue: false,
                 accountName: ''

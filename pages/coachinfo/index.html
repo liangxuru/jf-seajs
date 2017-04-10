@@ -14,10 +14,12 @@
 	</div>
 	<div class="{{ current==1?'':'fn-hide'}}">
 		<ul class="f24 classlist">
-			<li v-for="class in classList && classList.CCMList">
-				<span style="width: 40%;">{{ class.AClassName }}</span>
-				<span style="width: 25%;">{{ com_status(class.AClassModel) }}</span>
-				<span class="cPrice" style="width: 25%;">{{ Price | currency '￥'}}</span>
+			<li v-for="course in courseList">
+				<a v-link="{name:'classinfo', path: '/classinfo', query:{accountName: accountName, Id: course.productId }}">
+					<span style="width: 40%;">{{ course.productName }}</span>
+					<span style="width: 25%;">{{ com_status(course.ACourseType) }}</span>
+					<span class="cPrice" style="width: 25%;">{{ course.Price | currency '￥'}}</span>
+				</a>
 			</li>
 		</ul>
 	</div>

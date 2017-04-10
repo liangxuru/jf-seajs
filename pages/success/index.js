@@ -9,12 +9,14 @@ define(function (require,exports,module) {
         data: function(){
         	return {
         		orderCode: '',
-                accountName: ''
+                accountName: '',
+                canShow: "true"
         	}
         },
         ready: function(){
             this.orderCode = this.$route.query.orderCode;
             this.accountName = this.$route.query.accountName;
+            this.canShow = this.$route.query.canshow;
         },
         methods: {
             close: function(){

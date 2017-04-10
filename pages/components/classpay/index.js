@@ -27,12 +27,22 @@ define(function (require,exports,module) {
                 this.calculate();
             }.bind(this));
         },
+        watch: {
+            items: function(){
+                this.calculate();
+            }
+        },
         methods: {
             selectCard: function(){
                 if(this.cardPrice){
                     this.cardPrice = 0;
                 }else{
-                    this.cardPrice = Math.min(this.ABalance, this.amount-this.discount);
+                    if(this.amount - this.discount>5000 && this.ABalance<5000){
+                        //卡里钱不足抵扣
+                        this.cardPrice = 0;
+                    }else{
+                        this.cardPrice = Math.min(this.ABalance, this.amount-this.discount);
+                    }
                 }
                 this.wxPrice = this.amount - this.discount - this.cardPrice;
             },
@@ -47,25 +57,49 @@ define(function (require,exports,module) {
                     this.cardPrice = 0;
                 }
             },
+            selectXX: function(){
+                if(this.wxPrice){
+                    if(this.ABalance > this.amount - this.discount >5000){
+                        this.cardPrice = this.amount-this.discount;
+                        this.wxPrice = 0;
+                    }else{
+                        this.wxPrice = this.amount - this.discount;
+                        this.cardPrice = 0;
+                    }
+                }
+            },
             calculate: function(){
                 this.amount = 0;
                 this.discount = 0;
-                this.items.map(function(item){
+                this.items.length && this.items.map(function(item){
                     if(item.AStatus == 2){
-                        this.discount += this.product.Price * (1- item.discount);
+                        this.discount += this.product.Price * (1- item.LevelZheKou);
                         this.amount += this.product.Price;
                     }
                 }.bind(this));
-                this.cardPrice = Math.min(this.amount - this.discount, this.ABalance);
-                this.wxPrice = (this.amount - this.discount - this.cardPrice).toFixed(2) - 0;
+                if(this.amount - this.discount >=5000){
+                    if(this.ABalance>= this.amount - this.discount){
+                        //卡里钱够用
+                        this.cardPrice= this.amount- this.discount;
+                        this.wxPrice = 0;
+                    }else{
+                        this.wxPrice = this.amount - this.discount;
+                        this.cardPrice = 0;
+                    }
+                }else{
+                    this.cardPrice = Math.min(this.amount - this.discount, this.ABalance);
+                    this.wxPrice = (this.amount - this.discount - this.cardPrice).toFixed(2) - 0;
+                }
             },
             submit: function(){
-                this.$dispatch("submit", this.cardPrice>0, this.wxPrice>0);
+                this.$dispatch("submit", this.cardPrice>0, this.wxPrice>0 && this.wxPrice<5000);
             }
         },
         events: {
             select: function(){
-                this.calculate();
+                this.$nextTick(function () {
+                    this.calculate();
+                });
             }
         }
     });

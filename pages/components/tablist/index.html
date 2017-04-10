@@ -1,7 +1,7 @@
 <!-- index.html -->
 <div class="wrapper">
 	<div class="scroller">
-		<a class="item f38" v-for="(index, item) in sportTypes" @click="select(item,index)">
+		<a class="item f48" v-for="(index, item) in sportTypes" @click="select(item,index)">
 			<i class="{{ item.icon }} icon"></i><div class="f24 text {{ index==current?'cPrice':''}}">{{ item.name }}</div>
 		</a>
 	</div>

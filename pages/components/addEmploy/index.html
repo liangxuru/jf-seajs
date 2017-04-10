@@ -1,23 +1,22 @@
 <!-- index.html -->
 <template v-if="covershow">
-	<div class="cover"></div>
+	<div class="cover" @click="closeCover()"></div>
 	<div class="cov-form bg part">
 		<a class="close" @click="closeCover()">×</a>
 		<ul class="form">
-			<li><span class="key">姓名</span><span class="value"><input type="text" class="input" /></span></li>
-			<li><span class="key">性别</span><span class="value"><span class="cut" style="width: 30%;"><select class="input"><option>男</option><option>女</option></select></span><span class="cut" style="width: 70%;"><span class="key">年龄</span><span class="value"><input type="text" class="input" /></span></span></span></li>
-			<li><span class="key">身份证号</span><span class="value"><input type="text" class="input" /></span></li>
+			<li><span class="key">姓名</span><span class="value"><span class="cut" style="width: 50%;"><input type="text" class="input" v-model="name" /></span><span class="cut" style="width: 50%;"><span class="value"><select class="input" v-model="sex"><option value="1">男</option><option value="0">女</option></select></span></span></span></li>
+			<li><span class="key">身份证号</span><span class="value"><input type="text" class="input" v-model="idno" /></span></li>
 		</ul>
 		<div class="flex-box">
 			<a class="aside md-btn-empty" @click="closeCover()">取消</a>
-			<a class="md-btn aside confirm">确定</a>
+			<a class="md-btn aside confirm" @click="submit()">确定</a>
 		</div>
 	</div>
 </template>
 <div class="bg">
 	<ul class="customer-list">
 		<li v-for="customer in customers" class="flex-box">
-			<i class="icon-icon31 {{customer.AStatus == 2 ?'cPrice':'sub'}}" @click="select(customer)"></i><span class="aside customer-content"><span style="width:40%">{{ customer.name }}<i class="f12 sub">({{ customer.discount * 10}}折)</i></span><span style="width:20%">{{ customer.sex }}</span><span style="width:20%">{{ customer.age }}岁</span><span style="width:30%">{{ customer.idno | idformat }}</span></span><i class="icon-icon36 sub" style="margin-left: 5px;"></i>
+			<i class="icon-icon31 {{customer.AStatus == 2 ?'cPrice':'sub'}}" @click="select(customer)"></i><span class="aside customer-content"><span style="width:40%">{{ customer.AStudentName }}<i class="f12 sub" v-if="customer.LevelZheKou<1">({{ customer.LevelZheKou * 10}}折)</i></span><span style="width:20%">{{ customer.ASex==1?'男':'女' }}</span><span style="width:20%">{{ customer.AIdentityCard | ageformat }}岁</span><span style="width:30%">{{ customer.AIdentityCard | idformat }}</span></span><i @click="delCustomer(customer)" class="icon-icon36 sub" style="margin-left: 5px;"></i>
 		</li>
 	</ul>
 </div>

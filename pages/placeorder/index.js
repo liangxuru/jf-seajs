@@ -165,7 +165,7 @@ define(function (require,exports,module) {
                                 // self.getPay(data.data.orderCode, getLocalData("currentAN"), "1", opid);
                             }else if(data.data.payStatus === 1){
                                 //已支付
-                                var jpUrl = getServerURL() + "Mobile/jf/pages/index.html#!/success/:orderCode/:accountName/?accountName=" + getLocalData("currentAN") + "&orderCode=" + data.data.orderCode;
+                                var jpUrl = getServerURL() + "Mobile/jf/pages/index.html#!/success/:orderCode/:accountName/:canshow/?accountName=" + getLocalData("currentAN") + "&orderCode=" + data.data.orderCode + "&canshow=true";
                                 
                                 location.replace(jpUrl);
                                 //self.$router.go({path:'/success',name: 'success', query: {orderCode: data.data.orderCode,accountName: self.$route.query.accountName}});

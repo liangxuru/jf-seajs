@@ -16,7 +16,8 @@ define(function (require,exports,module) {
                 amount: 0,
                 discount: 0,
                 total: [0, 0],
-                zhekou: [0, 0]
+                zhekou: [0, 0],
+                level: 1
             }
         },
         ready: function(){
@@ -26,6 +27,9 @@ define(function (require,exports,module) {
             }).then(function(data){
                 this.customer = data;
                 this.ABalance = this.customer && this.customer.ABalance || 0;
+                if(this.customer){
+                    this.level = Math.min(this.customer.JFZheKou, this.customer.levelZheKou);
+                }
                 this.calculate();
             }.bind(this));
         },
@@ -64,7 +68,7 @@ define(function (require,exports,module) {
                     });
                 });
                 this.amount = this.total[0] + this.total[1];
-                this.zhekou.$set(0,(this.customer && (this.total[0]*(1-this.customer.levelZheKou)).toFixed(2) || 0 ) - 0);
+                this.zhekou.$set(0,(this.customer && (this.total[0]*(1-this.level)).toFixed(2) || 0 ) - 0);
                 this.zhekou.$set(1, (this.customer && (this.total[1]*(1-(this.customer.companyInfo && this.customer.companyInfo[0] && this.customer.companyInfo[0].shopZheKou || 0))).toFixed(2) || 0 ) - 0);
                 this.discount = this.zhekou[0] +  this.zhekou[1];
                 this.cardPrice = Math.min(this.amount - this.discount, this.ABalance);

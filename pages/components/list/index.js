@@ -51,7 +51,7 @@ define(function (require,exports,module) {
                 if(this.hasMore){
                     var dscrollTop = document.body.scrollTop || document.documentElement.scrollTop;
                       if (document.documentElement.offsetHeight <= (dscrollTop + window.innerHeight + 50)) {
-                        console.info('触发加载');
+                        
                         this.page++;
                     }
                 }

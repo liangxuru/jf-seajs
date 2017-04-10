@@ -4,7 +4,7 @@
 	<div class="bgnoMargin part">
 		<div class="f28">{{ info.productName }}</div>
 		<div class="f24">{{ info.ACourseType==1?'班课':(info.ACourseType==2?'1对n':'月卡') }}</div>
-		<div><span class="cPrice">{{ Price | currency '￥'}}</span></div>
+		<div><span class="cPrice f28">{{ info.Price | currency '￥'}}</span></div>
 	</div>
 
 	<div class="bg part">

@@ -20,7 +20,7 @@
 		<div class="left mg78"><span class="f28">商品金额</span></div>
 		<div class="right"><a class="cPrice">{{ amount | currency '￥'}}</a></div>
 		<div class="clear"></div>
-		<template v-if="zhekou[0]>0"><div class="left mg78"><span class="f24">会员卡折扣<span class="f22 sub">({{customer.levelZheKou*10}}折)</span></span></div>
+		<template v-if="zhekou[0]>0"><div class="left mg78"><span class="f24">{{ customer.levelZheKou-0>=customer.JFZheKou-0?'金风':'会员' }}折扣<span class="f22 sub">({{level*10}}折)</span></span></div>
 		<div class="right"><a class="cPrice">- {{ zhekou[0] | currency '￥' }}</a></div></template>
 		<div class="clear"></div>
 		<template v-if="zhekou[1]>0"><div class="left mg78"><span class="f24">企业折扣<span class="f22 sub">({{customer.companyInfo && customer.companyInfo[0].shopZheKou*10}}折)</span></span></div>

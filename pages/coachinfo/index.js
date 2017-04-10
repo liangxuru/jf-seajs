@@ -17,7 +17,7 @@ define(function (require,exports,module) {
         data: function() {
         	return {
                 current: 1,
-                classList: [],
+                courseList: [],
                 info: {},
                 imgServer: __imgServer
 	        }
@@ -31,10 +31,10 @@ define(function (require,exports,module) {
             classService.GetClassList({
                 spid: __spid,
                 coachId: this.$route.query.Id,
-                sporttype: this.$route.query.sportType
+                sporttype: this.$route.query.sportType,
+                pagecount: 1000
             }).then(function(data){
-                this.classList = data.CCMList;
-                this.price = data.Price;
+                this.courseList = data.items;
             }.bind(this));
         },
         events: {

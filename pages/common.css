@@ -65,6 +65,9 @@ ul{
 [class^="icon-"]::before, [class*=" icon-"]::before {
 	padding: 0 5px;
 }
+.f48{
+	font-size: 3.4rem;
+}
 .f38{
 	font-size: 2.4rem;
 }
@@ -188,8 +191,8 @@ ul{
 }
 .md-btn{
 	display: block;
-    height: 2.6rem;
-    line-height: 2.6rem;
+    height: 3.6rem;
+    line-height: 3.6rem;
     border: 1px solid #00bcf7;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -205,14 +208,13 @@ ul{
 }
 .md-btn-empty{
 	display: block;
-    height: 2.6rem;
-    line-height: 2.6rem;
-    border: 1px solid #00bcf7;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    border: 1px solid #d8d8d8;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
     background-color: #fff;
-    color: #00bcf7;
     text-align: center;
     width: 100%;
     text-overflow: ellipsis;

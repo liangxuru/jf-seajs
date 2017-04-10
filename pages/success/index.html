@@ -3,10 +3,10 @@
 	<div class="info">
 		<i class="success icon-icon31 cPrice f96"></i>
 		<p class="f36">操作成功</p>
-		<p class="f28">订单号: {{ orderNo }}</p>
+		<p class="f28">订单号: {{ orderCode }}</p>
 	</div>
 	<div class="group">
-		<p><button class="btn view f28" v-link="{path: '/orderlist', name:'orderlist', query: {accountName: accountName}}">查看订单</button></p>
+		<p v-if="canShow=='true'"><button class="btn view f28" v-link="{path: '/orderlist', name:'orderlist', query: {accountName: accountName}}">查看订单</button></p>
 		<p><button class="btn close f28" @click="close()">关闭</button></p>
 	</div>
 </div>
